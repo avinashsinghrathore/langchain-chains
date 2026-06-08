@@ -8,11 +8,10 @@ load_dotenv()
 llm = HuggingFaceEndpoint(repo_id="deepseek-ai/DeepSeek-V4-Pro", task="text-generation")
 
 prompt = PromptTemplate(
-    template="Generate 5 interesting facts about {topic}",
-    input_variables=["topic"]
+    template="Generate 5 interesting facts about {topic}", input_variables=["topic"]
 )
 
-model = ChatHuggingFace(llm = llm)
+model = ChatHuggingFace(llm=llm)
 
 parser = StrOutputParser()
 
@@ -21,3 +20,5 @@ chain = prompt | model | parser
 result = chain.invoke({"topic": "cricket"})
 
 print(result)
+
+# chain.get_graph().print_ascii()
