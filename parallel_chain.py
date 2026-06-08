@@ -57,3 +57,4 @@ Dual Problem: Involves solving for Lagrange multipliers associated with support 
 result = chain.invoke({"text": text})
 
 print(result)
+# chain.get_graph().print_ascii()
